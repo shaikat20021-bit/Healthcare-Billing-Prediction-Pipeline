@@ -1,18 +1,32 @@
-# Healthcare Data Analysis: Financial & Clinical Insights
+# 🏥 Healthcare Billing Prediction & Patient Analytics
 
-##  Project Overview
-This project is a collaborative Exploratory Data Analysis (EDA) of a comprehensive healthcare dataset. We integrated financial billing data with clinical stay durations to identify patterns in hospital resource allocation and cost efficiency.
+An interactive Machine Learning web application built with Streamlit that predicts hospital billing amounts based on patient demographics and medical profiles. 
 
-##  The Team
-1. **MD AL Sayeed Shaikat**: *Financial Data Architect* – Focused on insurance provider trends, billing amounts, and repository structure.
-2. **Suma Akter**: *Clinical Data Specialist* – Focused on medication heatmaps, medical condition correlations, and Length of Stay (LOS) analysis.
+## 📖 Project Overview
+The goal of this project is to bridge the gap between Data Engineering and Machine Learning by providing a seamless, real-time prediction portal. By inputting patient details (Age, Gender, Medical Condition, and Insurance Provider), the underlying Random Forest Machine Learning model calculates an estimated hospital bill. The app also features interactive data visualizations to analyze billing trends across different medical conditions and blood types.
 
-##  Key Insights
-* **Cost Intensity**: We discovered that billing is driven more by Medical Condition than by the number of days spent in the hospital.
-* **Clinical Trends**: Analysis showed that certain medications, like Penicillin, are standardized across various conditions, while others are highly specialized.
-* **Stay Duration**: Most patients across all conditions (Asthma, Cancer, Diabetes, etc.) have a mean stay of approximately 15 days, suggesting a standardized discharge protocol.
+## ✨ Key Features
+* **Real-time ML Predictions:** Uses a trained Scikit-Learn `RandomForestRegressor` to estimate medical costs instantly.
+* **Robust Feature Alignment:** Dynamically aligns Streamlit user inputs with the model's exact expected features using Pandas `reindex`, preventing one-hot encoding feature mismatches.
+* **Interactive Dashboard:** A clean, user-friendly sidebar for data entry.
+* **Data Visualization:** Built-in charts displaying cost analysis by medical condition and hospital admission distributions by blood type.
 
-##  Tech Stack
-* **Language**: Python 3.14 (Beta)
-* **Libraries**: `pandas`, `seaborn`, `matplotlib`
-* **Tools**: PyCharm Professional, Jupyter Notebooks, Git/GitHub.
+## 🛠️ Tech Stack
+* **Frontend:** [Streamlit](https://streamlit.io/)
+* **Machine Learning:** [Scikit-Learn](https://scikit-learn.org/) (Random Forest Regressor)
+* **Data Manipulation:** [Pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/)
+* **Model Serialization:** Joblib
+* **Version Control:** Git & GitHub
+
+## 📂 Project Structure
+```text
+medical_eda_project/
+│
+├── data/
+│   └── healthcare_dataset.csv    # Raw dataset used for training and EDA
+├── app.py                        # Main Streamlit web application script
+├── medical_model.pkl             # Trained Machine Learning model (Joblib format)
+├── predictive_model.ipynb        # Jupyter Notebook with ML training and evaluation logic
+├── requirements.txt              # List of Python dependencies
+└── README.md                     # Project documentation
+
