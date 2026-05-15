@@ -30,19 +30,19 @@ This system was developed as a collaborative research project:
 * **Framework:** Streamlit (deployed via Streamlit Community Cloud).
 * **Functionality:** Provides a real-time, interactive UI allowing users to input patient metrics and receive immediate, data-driven cost estimations alongside clinical data visualizations.
 
-### 4.Local Installation & Usage
+### 4. Local Installation & Usage
 To run the application locally for development or verification:
-* 1.Clone the repository:git clone [https://github.com/shaikat20021-bit/medical_eda_project.git](https://github.com/shaikat20021-bit/medical_eda_project.git)
+* Clone the repository: git clone [https://github.com/shaikat20021-bit/medical_eda_project.git](https://github.com/shaikat20021-bit/medical_eda_project.git)
 cd medical_eda_project
-* 2.Initialize a virtual environment (Recommended):python -m venv venv
+* Initialize a virtual environment (Recommended): python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-* 3.Install dependencies:pip install -r requirements.txt
-* 4.Execute the application:streamlit run app.py
+* Install dependencies: pip install -r requirements.txt
+* Execute the application: streamlit run app.py
 
-### 5.Future Scope: Advanced Healthcare AI
+### 5. Future Scope: Advanced Healthcare AI
 This project establishes the baseline architecture for our ongoing research into advanced healthcare analytics. Future iterations of this work will transition from predictive modeling to prescriptive AI, specifically focusing on:
-* 1.Medical Knowledge Graphs (Neo4j): Mapping complex relationships between patient history, diagnoses, and treatment efficacy.
-* 2.Retrieval-Augmented Generation (RAG): Integrating large language models anchored by medical ontologies to mitigate hallucination in clinical decision support systems.
+* Medical Knowledge Graphs (Neo4j): Mapping complex relationships between patient history, diagnoses, and treatment efficacy.
+* Retrieval-Augmented Generation (RAG): Integrating large language models anchored by medical ontologies to mitigate hallucination in clinical decision support systems.
 
 For inquiries regarding this research or the underlying codebase, please consult the repository authors.
 
