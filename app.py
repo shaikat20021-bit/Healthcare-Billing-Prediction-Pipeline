@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
+import shap
+import matplotlib.pyplot as plt
 
 # Page Config
 st.set_page_config(page_title="Canada Healthcare Analytics", layout="wide", page_icon="🏥")
@@ -68,6 +70,31 @@ if st.sidebar.button("Predict Estimated Bill"):
 
                 st.sidebar.balloons()
                 st.sidebar.success(f"AI Prediction: ${prediction:,.2f}")
+
+                # --- EXPLAINABLE AI SECTION ---
+                # --- EXPLAINABLE AI SECTION ---
+                st.subheader("📊 Why did the AI predict this exact amount?")
+                st.write(
+                    "This chart shows how each detail about the patient pushed the estimated bill up or down from the base average.")
+
+                # 1. Initialize the explainer
+                explainer = shap.TreeExplainer(model)
+
+                # 2. Get the SHAP values for this specific patient's input data
+                shap_values_single = explainer(final_df)
+
+                # --- NEW FIX: Shorten the labels so they stop overlapping! ---
+                short_names = [name.replace("Medical Condition_", "Med: ").replace("Insurance Provider_", "Ins: ") for
+                               name in shap_values_single.feature_names]
+                shap_values_single.feature_names = short_names
+
+                # 3. Create a waterfall plot
+                fig, ax = plt.subplots(figsize=(10, 6))
+                shap.plots.waterfall(shap_values_single[0], show=False)
+
+                # 4. Show the plot in Streamlit main area (using bbox_inches to strictly enforce margins)
+                st.pyplot(fig, bbox_inches='tight')
+                st.markdown("---")
 
         except Exception as e:
             st.sidebar.error("Error")
